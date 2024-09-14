@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OLA2-SofQuality", "OLA2-SofQuality.csproj", "{E2E133AB-BB5D-4CDF-9CC3-F2AE716C502D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E1EC13D8-58D4-4E13-B7D6-B01823AE44DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Integation_test", "Tests\API_Integation_test\API_Integation_test.csproj", "{96DA4087-14FD-48E8-94D9-CD345CA4F477}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,12 @@ Global
 		{E2E133AB-BB5D-4CDF-9CC3-F2AE716C502D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2E133AB-BB5D-4CDF-9CC3-F2AE716C502D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2E133AB-BB5D-4CDF-9CC3-F2AE716C502D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DA4087-14FD-48E8-94D9-CD345CA4F477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DA4087-14FD-48E8-94D9-CD345CA4F477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DA4087-14FD-48E8-94D9-CD345CA4F477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DA4087-14FD-48E8-94D9-CD345CA4F477}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96DA4087-14FD-48E8-94D9-CD345CA4F477} = {E1EC13D8-58D4-4E13-B7D6-B01823AE44DD}
 	EndGlobalSection
 EndGlobal

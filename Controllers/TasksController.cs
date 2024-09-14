@@ -4,7 +4,7 @@ using OLA2_SofQuality.Services;
 
 namespace OLA2_SofQuality.Controllers
 {
-    [Route("api/Task")]
+    [Route("api/task")]
     [ApiController]
     public class TasksController : ControllerBase
     {
