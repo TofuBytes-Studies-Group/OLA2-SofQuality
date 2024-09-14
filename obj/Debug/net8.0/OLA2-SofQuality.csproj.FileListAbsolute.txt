@@ -516,3 +516,5 @@ C:\Users\jcall\Desktop\skole\Software_Quality\OLA2-SofQuality\obj\Debug\net8.0\r
 C:\Users\jcall\Desktop\skole\Software_Quality\OLA2-SofQuality\obj\Debug\net8.0\OLA2-SofQuality.pdb
 C:\Users\jcall\Desktop\skole\Software_Quality\OLA2-SofQuality\obj\Debug\net8.0\OLA2-SofQuality.genruntimeconfig.cache
 C:\Users\jcall\Desktop\skole\Software_Quality\OLA2-SofQuality\obj\Debug\net8.0\ref\OLA2-SofQuality.dll
+C:\Users\jcall\Desktop\skole\Software_Quality\OLA2-SofQuality\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\jcall\Desktop\skole\Software_Quality\OLA2-SofQuality\bin\Debug\net8.0\Moq.dll
