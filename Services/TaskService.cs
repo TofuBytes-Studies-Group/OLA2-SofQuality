@@ -28,9 +28,9 @@ namespace OLA2_SofQuality.Services
             return addedTask;
         }
 
-        public async Task<ToDoTask> UpdateTaskAsync(ToDoTask task)
+        public async Task<ToDoTask> UpdateTaskAsync(int id, ToDoTask task)
         {
-            var updateObject = await _taskRepository.UpdateTaskAsync(task);
+            var updateObject = await _taskRepository.UpdateTaskAsync(id, task);
             return updateObject;
         }
 

@@ -54,9 +54,9 @@ namespace OLA2_SofQuality.Repositories
             };
         }
 
-        public async Task<ToDoTask> UpdateTaskAsync(ToDoTask task)
+        public async Task<ToDoTask> UpdateTaskAsync(int id, ToDoTask task)
         {
-            var entity = await _context.ToDoTasks.FindAsync(task.Id);
+            var entity = await _context.ToDoTasks.FindAsync(id);
             if (entity == null) throw new Exception("Task not found");
 
             entity.Description = task.Description;
@@ -73,11 +73,10 @@ namespace OLA2_SofQuality.Repositories
         public async Task DeleteTaskAsync(int id)
         {
             var task = await _context.ToDoTasks.FindAsync(id);
-            if (task != null) throw new Exception("Task not found");
-            {
+            if (task == null) throw new Exception("Task not found");
+            
                 _context.ToDoTasks.Remove(task);
                 await _context.SaveChangesAsync();
-            }
         }
     }
 }
