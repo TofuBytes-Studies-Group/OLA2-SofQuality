@@ -4,7 +4,7 @@ using OLA2_SofQuality.Services;
 
 namespace OLA2_SofQuality.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/task")]
     [ApiController]
     public class TasksController : ControllerBase
     {
@@ -37,14 +37,15 @@ namespace OLA2_SofQuality.Controllers
         public async Task<IActionResult> AddTask(ToDoTask task)
         {
             var addedTask = await _taskService.AddTaskAsync(task);
-            return Ok(addedTask);
+            return Created("localhost:7237/api/Task", addedTask);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateTask(ToDoTask task)
+        public async Task<ActionResult> UpdateTask(int id,ToDoTask task)
         {
-            await _taskService.UpdateTaskAsync(task);
-            return NoContent();
+            
+            var updatedTask = await _taskService.UpdateTaskAsync(id,task);
+            return Ok(updatedTask);
         }
 
         [HttpDelete("{id}")]

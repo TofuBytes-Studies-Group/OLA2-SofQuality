@@ -7,7 +7,7 @@ namespace OLA2_SofQuality.Repositories
         Task<List<ToDoTask>> GetTasksAsync();
         Task<ToDoTask> GetTaskByIdAsync(int id);
         Task<ToDoTask> AddTaskAsync(ToDoTask task);
-        Task<ToDoTask> UpdateTaskAsync(ToDoTask task);
+        Task<ToDoTask> UpdateTaskAsync(int id, ToDoTask task);
         Task DeleteTaskAsync(int id);
     }
 }
