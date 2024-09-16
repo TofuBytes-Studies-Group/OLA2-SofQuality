@@ -1,4 +1,4 @@
-# OLA2: API Testing, Coverage, and Benchmarking
+# ᓚᘏᗢ OLA2: API Testing, Coverage, and Benchmarking
  - Group: **TofuBytes**
  - Members: **Isak, Jamie & Helena**
 ## Objective
