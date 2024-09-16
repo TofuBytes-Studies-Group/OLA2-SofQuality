@@ -120,6 +120,9 @@ namespace API_Integation_test
             var okResult = Assert.IsType<OkObjectResult>(result);
             var returnTask = Assert.IsType<ToDoTask>(okResult.Value);
             Assert.Equal("Updated Description", returnTask.Description);
+            Assert.Equal("Updated Category", returnTask.Category);
+            Assert.True(returnTask.IsCompleted);
+            Assert.Equal(new DateTime(), returnTask.Deadline);
         }
 
         [Fact]
@@ -133,6 +136,25 @@ namespace API_Integation_test
 
             // Assert
             Assert.IsType<NoContentResult>(result);
+        }
+        
+        [Fact]
+        public async Task GetTask_ReturnNotFound()
+        {
+            // Arrange
+            var mockTask = new ToDoTask
+            {
+                Id = 1, Description = "Description 1", Category = "Category 1", IsCompleted = false,
+                Deadline = new DateTime()
+            };
+            _mockTaskService.Setup(service => service.GetTaskByIdAsync(1)).ReturnsAsync(mockTask);
+
+            // Act
+            var result = await _controller.GetTask(2);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result.Result);
+        
         }
     }
 }
