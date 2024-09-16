@@ -25,7 +25,8 @@ namespace API_Integation_test
             // Set the content root to the correct directory
             factory = factory.WithWebHostBuilder(builder =>
             {
-                builder.UseContentRoot(Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\OLA2-SofQuality"));
+                builder.UseContentRoot(Path.Combine(Directory.GetCurrentDirectory(),
+                    "..\\..\\..\\..\\OLA2-SofQuality"));
             });
 
             _client = factory.CreateClient();
@@ -39,8 +40,16 @@ namespace API_Integation_test
             // Arrange
             var mockTasks = new List<ToDoTask>
             {
-                new ToDoTask { Id = 1, Description = "Description 1", Category = "Category 1", IsCompleted = false, Deadline = new DateTime() },
-                new ToDoTask { Id = 2, Description = "Description 2", Category = "Category 2", IsCompleted = true, Deadline = new DateTime() }
+                new ToDoTask
+                {
+                    Id = 1, Description = "Description 1", Category = "Category 1", IsCompleted = false,
+                    Deadline = new DateTime()
+                },
+                new ToDoTask
+                {
+                    Id = 2, Description = "Description 2", Category = "Category 2", IsCompleted = true,
+                    Deadline = new DateTime()
+                }
             };
             _mockTaskService.Setup(service => service.GetTasksAsync()).ReturnsAsync(mockTasks);
 
@@ -51,6 +60,79 @@ namespace API_Integation_test
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
             var returnTasks = Assert.IsType<List<ToDoTask>>(okResult.Value);
             Assert.Equal(2, returnTasks.Count);
+        }
+
+        [Fact]
+        public async Task GetTask_ReturnsTaskById()
+        {
+            // Arrange
+            var mockTask = new ToDoTask
+            {
+                Id = 1, Description = "Description 1", Category = "Category 1", IsCompleted = false,
+                Deadline = new DateTime()
+            };
+            _mockTaskService.Setup(service => service.GetTaskByIdAsync(1)).ReturnsAsync(mockTask);
+
+            // Act
+            var result = await _controller.GetTask(1);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result.Result);
+            var returnTask = Assert.IsType<ToDoTask>(okResult.Value);
+            Assert.Equal(1, returnTask.Id);
+        }
+
+        [Fact]
+        public async Task AddTask_ReturnsCreatedTask()
+        {
+            // Arrange
+            var newTask = new ToDoTask
+            {
+                Id = 1, Description = "Description 1", Category = "Category 1", IsCompleted = false,
+                Deadline = new DateTime()
+            };
+            _mockTaskService.Setup(service => service.AddTaskAsync(newTask)).ReturnsAsync(newTask);
+
+            // Act
+            var result = await _controller.AddTask(newTask);
+
+            // Assert
+            var createdResult = Assert.IsType<CreatedResult>(result);
+            var returnTask = Assert.IsType<ToDoTask>(createdResult.Value);
+            Assert.Equal(1, returnTask.Id);
+        }
+
+        [Fact]
+        public async Task UpdateTask_ReturnsUpdatedTask()
+        {
+            // Arrange
+            var updatedTask = new ToDoTask
+            {
+                Id = 1, Description = "Updated Description", Category = "Updated Category", IsCompleted = true,
+                Deadline = new DateTime()
+            };
+            _mockTaskService.Setup(service => service.UpdateTaskAsync(1, updatedTask)).ReturnsAsync(updatedTask);
+
+            // Act
+            var result = await _controller.UpdateTask(1, updatedTask);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var returnTask = Assert.IsType<ToDoTask>(okResult.Value);
+            Assert.Equal("Updated Description", returnTask.Description);
+        }
+
+        [Fact]
+        public async Task DeleteTask_ReturnsNoContent()
+        {
+            // Arrange
+            _mockTaskService.Setup(service => service.DeleteTaskAsync(1)).Returns(Task.CompletedTask);
+
+            // Act
+            var result = await _controller.DeleteTask(1);
+
+            // Assert
+            Assert.IsType<NoContentResult>(result);
         }
     }
 }
