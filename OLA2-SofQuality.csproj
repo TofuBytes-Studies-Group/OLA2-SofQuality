@@ -51,6 +51,17 @@
       <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\Debug\net8.0\MvcTestingAppManifest.json" />
       <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\API_Integation_test.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\MvcTestingAppManifest.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\OLA2-SofQuality.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\OLA2-SofQuality.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\API_Integation_test.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\Debug\net8.0\API_Integation_test.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\bin\Debug\net8.0\Tests\API_Integation_test\obj\Debug\net8.0\MvcTestingAppManifest.json" />
     </ItemGroup>
 
 </Project>
