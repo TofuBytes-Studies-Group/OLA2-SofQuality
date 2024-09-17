@@ -91,7 +91,6 @@ Overall, the test shows excellent system performance with low response times, hi
 
 
 ## Reflection
-This project was a struggle to us. We had a hard time setting it up, and every time we pushed something that worked, it wouldnt work on other computers.
-We tried doing it as good as we could with the time we got, and we are happy with the result we got.
-If we were to make this project again, we would make sure we had enough code coverage, since we only made it to 52% of the overall coverage.
+We didn't satisfy all the assignments criteria (or requirements) within the assigned timeslot and in order to still reach the deadline we focused on working with the tools and gathering an understanding for future projects.
+If we were to make this project again, we would make sure we had enough code coverage, since we only made it to 52% of the overall coverage, and make sure to meet all the requirements.
 
