@@ -27,10 +27,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Tests\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\API_Integation_test.deps.json" />
       <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\appsettings.Development.json" />
       <_ContentIncludedByDefault Remove="Tests\API_Integation_test\bin\Debug\net8.0\appsettings.json" />
