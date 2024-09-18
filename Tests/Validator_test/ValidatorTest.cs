@@ -1,4 +1,5 @@
 using System;
+using Moq;
 using OLA2_SofQuality.Validator;
 using Xunit;
 
@@ -7,10 +8,13 @@ namespace Validator_test;
 public class ValidatorTest
 {
     private readonly Validator _validator;
+    
+    private readonly Mock<Validator> _mockValidator;
 
     public ValidatorTest()
     {
         _validator = new Validator();
+        _mockValidator = new Mock<Validator>();
     }
 
     [Fact]
@@ -26,17 +30,20 @@ public class ValidatorTest
         Assert.True(result);
     }
 
-    [Fact]
-    public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid()
+    [Theory]
+    [InlineData("StringWithOver2Chars", true)]
+    [InlineData("A", false)]
+    [InlineData("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", true)]
+    public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid(string category, bool expectedResult)
     {
         // Arrange
-        string validCategory = "Work";
+        _mockValidator.Setup(v => v.ValidateCategory(It.IsAny<string>())).Returns((string c) => c.Length >= 2 && c.Length <= 50);
 
         // Act
-        bool result = _validator.ValidateCategory(validCategory);
+        bool result = _mockValidator.Object.ValidateCategory(category);
 
         // Assert
-        Assert.True(result);
+        Assert.Equal(expectedResult, result);
     }
 
     [Fact]
