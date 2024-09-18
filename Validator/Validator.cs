@@ -16,7 +16,10 @@ public class Validator
 
     public bool ValidateDeadline(DateTime deadline)
     {
-        // Add validation logic here
+        if(deadline < DateTime.Now)
+        {
+            return false;
+        }
         return true;
     }
 }

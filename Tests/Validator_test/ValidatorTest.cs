@@ -43,12 +43,25 @@ public class ValidatorTest
     public void ValidateDeadline_ShouldReturnTrue_WhenDeadlineIsValid()
     {
         // Arrange
-        DateTime validDeadline = DateTime.Now.AddDays(1);
+        DateTime validDeadline = DateTime.Now.AddMinutes(1);
 
         // Act
         bool result = _validator.ValidateDeadline(validDeadline);
 
         // Assert
         Assert.True(result);
+    }
+    
+    [Fact]
+    public void ValidateDeadline_ShouldReturnFalse_WhenDeadlineIsNotValid()
+    {
+        // Arrange
+        DateTime validDeadline = DateTime.Now.AddMinutes(-1);
+
+        // Act
+        bool result = _validator.ValidateDeadline(validDeadline);
+
+        // Assert
+        Assert.False(result);
     }
 }
