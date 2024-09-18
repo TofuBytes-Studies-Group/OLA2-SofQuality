@@ -4,8 +4,16 @@ public class Validator
 {
     public bool ValidateDescription(string description)
     {
-        // Add validation logic here
-        return true;
+        if (description.Length < 5 || description.Length > 255)
+        {
+            return false;
+        }
+        else if (description.Length >= 5 && description.Length <= 255)
+        {
+            return true;
+        }
+        return false;
+        
     }
 
     public bool ValidateCategory(string category)
