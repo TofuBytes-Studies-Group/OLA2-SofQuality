@@ -12,18 +12,50 @@ public class ValidatorTest
     {
         _validator = new Validator();
     }
+    
+    // Var lidt usikker på om det her er fint, kunne ikke få det til at virke med inline data
+    public static IEnumerable<object[]> GetDescriptionTestData()
+    {
+        yield return new object[] { "Test", false }; // 4 characters
+        yield return new object[] { "Tests", true }; // 5 characters
+        yield return new object[] { new string('a', 255), true }; // 255 characters
+        yield return new object[] { new string('a', 256), false }; // 256 characters
+    }
 
+    [Theory]
+    [MemberData(nameof(GetDescriptionTestData))]
+    public void ValidateDescription_ShouldReturnExpectedResult(string description, bool expectedResult)
+    {
+        // Act
+        bool result = _validator.ValidateDescription(description);
+
+        // Assert
+        Assert.Equal(expectedResult, result);
+    }
     [Fact]
     public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid()
     {
         // Arrange
-        string validDescription = "This is a valid description.";
+        string validDescription = "Testing";
 
         // Act
         bool result = _validator.ValidateDescription(validDescription);
 
         // Assert
         Assert.True(result);
+    }
+    
+    [Fact]
+    public void ValidateDescription_ShouldReturnFalse_WhenDescriptionIsInvalid()
+    {
+        // Arrange
+        string invalidDescription = "hi";
+
+        // Act
+        bool result = _validator.ValidateDescription(invalidDescription);
+
+        // Assert
+        Assert.False(result);
     }
 
     [Fact]
