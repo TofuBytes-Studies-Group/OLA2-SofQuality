@@ -7,7 +7,6 @@ namespace Validator_test;
 public class ValidatorTest
 {
     private readonly Validator _validator;
-
     public ValidatorTest()
     {
         _validator = new Validator();
@@ -16,6 +15,7 @@ public class ValidatorTest
     [Theory]
     [InlineData("hejsa")]
     [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")] // 256 characters
+
 
     public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid(string validDescription)
     {
@@ -37,18 +37,31 @@ public class ValidatorTest
         // Assert
         Assert.False(result);
     }
-
-    [Fact]
-    public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid()
+  
+    [Theory]
+    [InlineData("StringWithOver2Chars")]
+    [InlineData("AA")]
+    [InlineData("ThisExactStringRightHereIsExactly50CharactersLoong")]
+    public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid(string category)
     {
-        // Arrange
-        string validCategory = "Work";
-
         // Act
-        bool result = _validator.ValidateCategory(validCategory);
+        bool result = _validator.ValidateCategory(category);
 
         // Assert
         Assert.True(result);
+    }
+    
+    [Theory]
+    [InlineData("A")]
+    [InlineData("ThisStringIsWaaaaaaaaaayOver50CharactersAndShouldReturnFalse")]
+    public void ValidateCategory_ShouldReturnFalse_WhenCategoryIsInvalid(string category)
+    {
+        // Act
+        bool result = _validator.ValidateCategory(category);
+
+        // Assert
+        Assert.False(result);
+  
     }
 
     [Fact]
