@@ -9,14 +9,16 @@ public class ValidatorTest
     private readonly Validator _validator;
     public ValidatorTest()
     {
-        _validator = new Validator(); }
+        _validator = new Validator();
+    }
+    
+    [Theory]
+    [InlineData("hejsa")]
+    [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")] // 256 characters
 
-    [Fact]
-    public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid()
+
+    public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid(string validDescription)
     {
-        // Arrange
-        string validDescription = "This is a valid description.";
-
         // Act
         bool result = _validator.ValidateDescription(validDescription);
 
@@ -24,6 +26,18 @@ public class ValidatorTest
         Assert.True(result);
     }
 
+    [Theory]
+    [InlineData("test")]
+    [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")] // 256 characters
+    public void ValidateDescription_ShouldReturnFalse_WhenDescriptionIsInvalid(string invalidDescription)
+    {
+        // Act
+        bool result = _validator.ValidateDescription(invalidDescription);
+
+        // Assert
+        Assert.False(result);
+    }
+  
     [Theory]
     [InlineData("StringWithOver2Chars")]
     [InlineData("AA")]
@@ -54,12 +68,25 @@ public class ValidatorTest
     public void ValidateDeadline_ShouldReturnTrue_WhenDeadlineIsValid()
     {
         // Arrange
-        DateTime validDeadline = DateTime.Now.AddDays(1);
+        DateTime validDeadline = DateTime.Now.AddMinutes(1);
 
         // Act
         bool result = _validator.ValidateDeadline(validDeadline);
 
         // Assert
         Assert.True(result);
+    }
+    
+    [Fact]
+    public void ValidateDeadline_ShouldReturnFalse_WhenDeadlineIsNotValid()
+    {
+        // Arrange
+        DateTime validDeadline = DateTime.Now.AddMinutes(-1);
+
+        // Act
+        bool result = _validator.ValidateDeadline(validDeadline);
+
+        // Assert
+        Assert.False(result);
     }
 }

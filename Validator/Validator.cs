@@ -4,7 +4,10 @@ public class Validator
 {
     public bool ValidateDescription(string description)
     {
-        // Add validation logic here
+        if (description.Length < 5 || description.Length > 255)
+        {
+            return false;
+        }
         return true;
     }
 
@@ -20,7 +23,10 @@ public class Validator
 
     public bool ValidateDeadline(DateTime deadline)
     {
-        // Add validation logic here
+        if(deadline < DateTime.Now)
+        {
+            return false;
+        }
         return true;
     }
 }
