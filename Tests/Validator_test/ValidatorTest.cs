@@ -32,12 +32,27 @@ public class ValidatorTest
 
     [Theory]
     [InlineData("StringWithOver2Chars", true)]
-    [InlineData("A", false)]
-    [InlineData("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", true)]
+    [InlineData("AA", true)]
+    [InlineData("ThisExactStringRightHereIsExactly50CharactersLoong", true)]
     public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid(string category, bool expectedResult)
     {
         // Arrange
-        _mockValidator.Setup(v => v.ValidateCategory(It.IsAny<string>())).Returns((string c) => c.Length >= 2 && c.Length <= 50);
+        _mockValidator.Setup(v => v.ValidateCategory(It.IsAny<string>())).Returns((string c) => c.Length is >= 2 and <= 50);
+
+        // Act
+        bool result = _mockValidator.Object.ValidateCategory(category);
+
+        // Assert
+        Assert.Equal(expectedResult, result);
+    }
+    
+    [Theory]
+    [InlineData("A", false)]
+    [InlineData("ThisStringIsWaaaaaaaaaayOver50CharactersAndShouldReturnFalse", false)]
+    public void ValidateCategory_ShouldReturnFalse_WhenCategoryIsInvalid(string category, bool expectedResult)
+    {
+        // Arrange
+        _mockValidator.Setup(v => v.ValidateCategory(It.IsAny<string>())).Returns((string c) => c.Length is >= 2 and <= 50);
 
         // Act
         bool result = _mockValidator.Object.ValidateCategory(category);
