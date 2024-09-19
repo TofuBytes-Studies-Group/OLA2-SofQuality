@@ -14,26 +14,26 @@ public class ValidatorTest
     }
     
     [Theory]
-    [InlineData("Testing", true)]
-    public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid(string validDescription, bool expectedResult)
+    [InlineData("testing")]
+    public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid(string validDescription)
     {
         // Act
         bool result = _validator.ValidateDescription(validDescription);
 
         // Assert
-        Assert.Equal(expectedResult, result);
+        Assert.True(result);
     }
 
     [Theory]
-    [InlineData("test", false)]
-    [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", false)] // 256 characters
-    public void ValidateDescription_ShouldReturnFalse_WhenDescriptionIsInvalid(string invalidDescription, bool expectedResult)
+    [InlineData("test")]
+    [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")] // 256 characters
+    public void ValidateDescription_ShouldReturnFalse_WhenDescriptionIsInvalid(string invalidDescription)
     {
         // Act
         bool result = _validator.ValidateDescription(invalidDescription);
 
         // Assert
-        Assert.Equal(expectedResult, result);
+        Assert.False(result);
     }
 
     [Fact]
