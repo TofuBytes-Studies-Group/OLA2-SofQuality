@@ -9,9 +9,9 @@ public class Validator
     }
 
     // virtual method to be able to mock it
-    public virtual bool ValidateCategory(string category)
+    public bool ValidateCategory(string category)
     {
-        if(category.Length < 2 || category.Length > 50)
+        if(category.Length is < 2 or > 50)
         {
             return false;
         }

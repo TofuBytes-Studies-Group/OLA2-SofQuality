@@ -1,5 +1,4 @@
 using System;
-using Moq;
 using OLA2_SofQuality.Validator;
 using Xunit;
 
@@ -8,14 +7,9 @@ namespace Validator_test;
 public class ValidatorTest
 {
     private readonly Validator _validator;
-    
-    private readonly Mock<Validator> _mockValidator;
-
     public ValidatorTest()
     {
-        _validator = new Validator();
-        _mockValidator = new Mock<Validator>();
-    }
+        _validator = new Validator(); }
 
     [Fact]
     public void ValidateDescription_ShouldReturnTrue_WhenDescriptionIsValid()
@@ -31,34 +25,29 @@ public class ValidatorTest
     }
 
     [Theory]
-    [InlineData("StringWithOver2Chars", true)]
-    [InlineData("AA", true)]
-    [InlineData("ThisExactStringRightHereIsExactly50CharactersLoong", true)]
-    public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid(string category, bool expectedResult)
+    [InlineData("StringWithOver2Chars")]
+    [InlineData("AA")]
+    [InlineData("ThisExactStringRightHereIsExactly50CharactersLoong")]
+    public void ValidateCategory_ShouldReturnTrue_WhenCategoryIsValid(string category)
     {
-        // Arrange
-        _mockValidator.Setup(v => v.ValidateCategory(It.IsAny<string>())).Returns((string c) => c.Length is >= 2 and <= 50);
-
         // Act
-        bool result = _mockValidator.Object.ValidateCategory(category);
+        bool result = _validator.ValidateCategory(category);
 
         // Assert
-        Assert.Equal(expectedResult, result);
+        Assert.True(result);
     }
     
     [Theory]
-    [InlineData("A", false)]
-    [InlineData("ThisStringIsWaaaaaaaaaayOver50CharactersAndShouldReturnFalse", false)]
-    public void ValidateCategory_ShouldReturnFalse_WhenCategoryIsInvalid(string category, bool expectedResult)
+    [InlineData("A")]
+    [InlineData("ThisStringIsWaaaaaaaaaayOver50CharactersAndShouldReturnFalse")]
+    public void ValidateCategory_ShouldReturnFalse_WhenCategoryIsInvalid(string category)
     {
-        // Arrange
-        _mockValidator.Setup(v => v.ValidateCategory(It.IsAny<string>())).Returns((string c) => c.Length is >= 2 and <= 50);
-
         // Act
-        bool result = _mockValidator.Object.ValidateCategory(category);
+        bool result = _validator.ValidateCategory(category);
 
         // Assert
-        Assert.Equal(expectedResult, result);
+        Assert.False(result);
+  
     }
 
     [Fact]
