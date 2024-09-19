@@ -8,12 +8,7 @@ public class Validator
         {
             return false;
         }
-        else if (description.Length >= 5 && description.Length <= 255)
-        {
-            return true;
-        }
-        return false;
-        
+        return true;
     }
 
     public bool ValidateCategory(string category)
