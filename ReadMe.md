@@ -82,13 +82,17 @@ The code was made to do what it was supposed to do, and if there were anything t
 - Discuss how these practices helped in identifying and fixing issues early.
 
 Impact of static code analysis tools:
-- We implemented Qodana, which is a static code analysis tool. This tool helped us identify issues, redundant code or unused code, and helped us fix them before they became a problem.
+- We implemented Qodana, which is a static code analysis tool. This tool helped us identify issues, redundant code or unused code, and helped us fix them before they became a problem. The impact of Qodana was good, because we were able to actually see all the issues we had in our code. For us, this helps us understanding what exactly we need to focus on improving in the code, so we for examplem dont have a lot of redundant or unused code.
 
 Value of code and software reviews:
 - Specifically software reviews, helped us understand the importance of teamwork. Sometimes we are too focused on the small things we need to do, without looking at the rest of the code. This is where software reviews come in, and help us see the bigger picture.
-  - For example: We made the validator tests 3 different ways in the beginning. With the help of code reviews, we could see what the others had made, and made sure that it was similar.
+    - For example: We made the validator tests 3 different ways in the beginning. With the help of code reviews, we could see what the others had made, and made sure that it was similar.
 
 Influence of Equivalence Partitioning and Boundary Value Analysis on test design:
+- Equivalence partitioning helped us understanding a bit more, what needed to be tested. With the combination of the boundary value, we implemented more tests than we would usually, and it also helped us focus more on testing than writing the actual code.
+    - Equivalence partitioning helped us identify the major categories of input values, and  boundary values helped us ensure that the boundaries of these categories was tested thoroughly.
+ 
+In general, these practices work together to form a robust safety net that helps identify and address issues early in the development process. By using these techniques early on, we could find and resolve problems before they snowball into larger, more complex issues. This not only leads to higher-quality software but also saves time and effort, reducing the need for extensive debugging later in the development cycle.
 
 ---
 
