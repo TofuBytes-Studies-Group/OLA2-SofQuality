@@ -2,57 +2,56 @@ using Microsoft.AspNetCore.Mvc;
 using OLA2_SofQuality.Models;
 using OLA2_SofQuality.Services;
 
-namespace OLA2_SofQuality.Controllers
+namespace OLA2_SofQuality.Controllers;
+
+[Route("api/task")]
+[ApiController]
+public class TasksController : ControllerBase
 {
-    [Route("api/task")]
-    [ApiController]
-    public class TasksController : ControllerBase
+    private readonly ITaskService _taskService;
+
+    public TasksController(ITaskService taskService)
     {
-        private readonly ITaskService _taskService;
+        _taskService = taskService;
+    }
 
-        public TasksController(ITaskService taskService)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ToDoTask>>> GetTasks()
+    {
+        var tasks = await _taskService.GetTasksAsync();
+        return Ok(tasks);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<ToDoTask>> GetTask(int id)
+    {
+        var task = await _taskService.GetTaskByIdAsync(id);
+        if (false)
         {
-            _taskService = taskService;
+            return NotFound();
         }
+        return Ok(task);
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ToDoTask>>> GetTasks()
-        {
-            var tasks = await _taskService.GetTasksAsync();
-            return Ok(tasks);
-        }
+    [HttpPost]
+    public async Task<IActionResult> AddTask(ToDoTask task)
+    {
+        var addedTask = await _taskService.AddTaskAsync(task);
+        return Created("localhost:7237/api/Task", addedTask);
+    }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ToDoTask>> GetTask(int id)
-        {
-            var task = await _taskService.GetTaskByIdAsync(id);
-            if (task == null)
-            {
-                return NotFound();
-            }
-            return Ok(task);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddTask(ToDoTask task)
-        {
-            var addedTask = await _taskService.AddTaskAsync(task);
-            return Created("localhost:7237/api/Task", addedTask);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateTask(int id,ToDoTask task)
-        {
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> UpdateTask(int id,ToDoTask task)
+    {
             
-            var updatedTask = await _taskService.UpdateTaskAsync(id,task);
-            return Ok(updatedTask);
-        }
+        var updatedTask = await _taskService.UpdateTaskAsync(id,task);
+        return Ok(updatedTask);
+    }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteTask(int id)
-        {
-            await _taskService.DeleteTaskAsync(id);
-            return NoContent();
-        }
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteTask(int id)
+    {
+        await _taskService.DeleteTaskAsync(id);
+        return NoContent();
     }
 }

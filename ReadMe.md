@@ -52,7 +52,7 @@ Each test uses a simulated version of the ITaskService to test the controller lo
 
 
 ### Code Coverage
-![TestCoverage.png](Images%2FTestCoverage.png)
+![TestCoverage.png](Images/TestCoverage.png)
 
 - Program (81%): The code in the Program section has good test coverage (81%), meaning most of it has been exercised by integration tests.
 - Models and Controllers (100%): These sections are fully covered by tests, indicating that the behavior and structure of these components have been thoroughly tested.
@@ -61,8 +61,8 @@ Each test uses a simulated version of the ITaskService to test the controller lo
 Overall, we could have implemented more test to make sure we had enough code coverage, but since we had a hard time with this project, it was not something we had time to do. 
 
 ### JMeter Load Testing
-![JMeterImg1.png](Images%2FJMeterImg1.png)
-![JMeterImg2.png](Images%2FJMeterImg2.png)
+![JMeterImg1.png](Images/JMeterImg1.png)
+![JMeterImg2.png](Images/JMeterImg2.png)
 
 This is what we got from the statistics:
 

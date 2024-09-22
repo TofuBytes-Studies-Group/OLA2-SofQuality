@@ -1,13 +1,9 @@
-using System;
-using Xunit;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using OLA2_SofQuality.Data;
 using OLA2_SofQuality.Models;
 using OLA2_SofQuality.Repositories;
-
+using Xunit;
 
 namespace OLA2_SofQuality.Tests.Repositories_Test;
 
@@ -18,7 +14,7 @@ public class RepositoriesTest : IDisposable
 
     public RepositoriesTest()
     {
-        var connectionString = "Data Source=:memory:;Version=3;New=True;";
+        const string connectionString = "Data Source=:memory:;Version=3;New=True;";
         _connection = new SQLiteConnection(connectionString);
         _connection.Open();
         InitializeDatabase();
@@ -50,14 +46,9 @@ public class RepositoriesTest : IDisposable
         {
             using (var reader = command.ExecuteReader())
             {
-                if (reader.Read())
-                {
-                    Console.WriteLine("Table 'ToDoTasks' created successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Failed to create table 'ToDoTasks'.");
-                }
+                Console.WriteLine(reader.Read()
+                    ? "Table 'ToDoTasks' created successfully."
+                    : "Failed to create table 'ToDoTasks'.");
             }
         }
     }
@@ -65,7 +56,7 @@ public class RepositoriesTest : IDisposable
     [Fact]
     public async Task AddTask_TaskIsAdded()
     {
-        var task = new ToDoTask()
+        var task = new ToDoTask
         {
             Description = "Test Task",
             Category = "Test Category",
@@ -83,7 +74,7 @@ public class RepositoriesTest : IDisposable
     [Fact]
     public async Task UpdateTask_TaskIsUpdated()
     {
-        var task = new ToDoTask()
+        var task = new ToDoTask
         {
             Description = "Test Task",
             Category = "Test Category",
@@ -94,7 +85,7 @@ public class RepositoriesTest : IDisposable
         var addedTask = await _taskRepository.AddTaskAsync(task);
 
 
-        var expactedToDoTask = new ToDoTask()
+        var expactedToDoTask = new ToDoTask
         {
             Id = addedTask.Id,
             Description = "Updated Task",
@@ -190,5 +181,6 @@ public class RepositoriesTest : IDisposable
         }
 
         _connection.Close();
+            
     }
 }

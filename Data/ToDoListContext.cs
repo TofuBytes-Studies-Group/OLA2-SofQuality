@@ -1,22 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using OLA2_SofQuality.Models;
 
-namespace OLA2_SofQuality.Data
+namespace OLA2_SofQuality.Data;
+
+public class ToDoListContext(DbContextOptions<ToDoListContext> options) : DbContext(options)
 {
-    public class ToDoListContext : DbContext
+    public DbSet<ToDoTask> ToDoTasks { get; init; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        public ToDoListContext(DbContextOptions<ToDoListContext> options) : base(options) { }
+        modelBuilder.Entity<ToDoTask>()
+            .HasKey(t => t.Id);
 
-        public DbSet<ToDoTask> ToDoTasks { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ToDoTask>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<ToDoTask>()
-                .Property(t => t.Id)
-                .ValueGeneratedOnAdd();
-        }
+        modelBuilder.Entity<ToDoTask>()
+            .Property(t => t.Id)
+            .ValueGeneratedOnAdd();
     }
 }
