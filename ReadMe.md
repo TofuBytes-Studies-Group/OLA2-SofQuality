@@ -63,6 +63,16 @@ In our Validator.cs file and ValidatorTest.cs, the validator is tested with the 
     - Identification of potential bugs.
 - Submit written feedback and any suggested code changes.
 
+We always make code review on everyones code. We use github pull requests to review the code, and below are some examples of some reviews we did:
+
+![Code comment 1](Images/codeComment1.png)
+
+![Code comment 2](Images/codeComment2.png)
+
+Especially in this last comment, we can see that no one is 'in charge' of the code, and that we are always working together to make sure what works, what doesnt and so on.
+We always check the code for readability and maintainability, and make sure that the code is up to our standards.
+
+
 ### 8. Software Review
 - Perform a **Software Review** based on the [Software Review](https://en.wikipedia.org/wiki/Software_review) article:
     - Functional correctness: Does the code do what it is supposed to do?
@@ -70,8 +80,14 @@ In our Validator.cs file and ValidatorTest.cs, the validator is tested with the 
     - Best practices (code structure, documentation).
 - Submit a **300-word report** reflecting on your findings and improvements.
 
+In relation to functional correctness, the code performs as expected and passes all the test cases. Testing was done using equivalence partitioning and boundary value analysis. 
+For equivalence partitioning, the inputs were divided into valid and invalid categories, ensuring that the code handled typical cases within these partitions correctly. 
+Additionally, boundary value analysis revealed that the code responds appropriately at the edges of input ranges, such as minimum and maximum allowable values. However, further testing could be beneficial to expand the test coverage, especially for complex input patterns or extreme edge cases.
 We made sure that our software was correct, and that it was easy to maintain. We also made sure that the code was structured in a way that was easy to understand, and that the documentation was clear and concise.
 The code was made to do what it was supposed to do, and if there were anything that were 'too much' or 'too little', we made sure to fix it.
+
+In relation to best practices, we always try to maintain a clean code structure and follow the coding standards. We make sure to name our methods correctly, so everyone knows what the methods actually do.
+We could improve the documentation, and use more comments directly in the code, so that is something we need to work on.
 
 ### 9. Reflection on Testing and Code Quality
 - Write a **300-400 word reflection** on:
