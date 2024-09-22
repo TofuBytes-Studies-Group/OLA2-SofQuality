@@ -2,18 +2,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace OLA2_SofQuality.Models
+namespace OLA2_SofQuality.Models;
+
+public class ToDoTask
 {
-    public class ToDoTask
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [SwaggerSchema(ReadOnly = true)]
-        public int Id { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [SwaggerSchema(ReadOnly = true)]
+    public int Id { get; init; }
         
-        public string Description { get; set; }
-        public string Category { get; set; }
-        public DateTime Deadline { get; set; }
-        public bool IsCompleted { get; set; }
-    }
+    public string? Description { get; set; }
+    public string? Category { get; set; }
+    public DateTime Deadline { get; set; }
+    public bool IsCompleted { get; set; }
 }
