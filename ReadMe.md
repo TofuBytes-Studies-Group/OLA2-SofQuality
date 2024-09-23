@@ -1,5 +1,5 @@
 # Task Service with Testing, Code Analysis, and Reviews
-
+ - Group name: **TofuBytes** Members: **Isak, Jamie & Helena**
 ## Objective
 Refine the **Task Service** with a focus on testing, static code analysis, and peer reviews. Apply code and software review principles to ensure quality, covering both automated and manual review processes.
 
@@ -80,14 +80,14 @@ We always check the code for readability and maintainability, and make sure that
     - Best practices (code structure, documentation).
 - Submit a **300-word report** reflecting on your findings and improvements.
 
-In relation to functional correctness, the code performs as expected and passes all the test cases. Testing was done using equivalence partitioning and boundary value analysis. 
+In relation to functional correctness, the code performs as expected and passes all the test cases. `Validation_test` was added as a way of ensuring our Validation Testing was done using equivalence partitioning and boundary value analysis. 
 For equivalence partitioning, the inputs were divided into valid and invalid categories, ensuring that the code handled typical cases within these partitions correctly. 
 Additionally, boundary value analysis revealed that the code responds appropriately at the edges of input ranges, such as minimum and maximum allowable values. However, further testing could be beneficial to expand the test coverage, especially for complex input patterns or extreme edge cases.
-We made sure that our software was correct, and that it was easy to maintain. We also made sure that the code was structured in a way that was easy to understand, and that the documentation was clear and concise.
+We made sure that our software was correct, and that it was easy to maintain. We also made sure that the code was structured in a way that was easy to understand.
 The code was made to do what it was supposed to do, and if there were anything that were 'too much' or 'too little', we made sure to fix it.
 
 In relation to best practices, we always try to maintain a clean code structure and follow the coding standards. We make sure to name our methods correctly, so everyone knows what the methods actually do.
-We could improve the documentation, and use more comments directly in the code, so that is something we need to work on.
+We strive to improve documentation, comments is a way we want to reflect that directly in the code.
 
 ### 9. Reflection on Testing and Code Quality
 - Write a **300-400 word reflection** on:
@@ -98,7 +98,7 @@ We could improve the documentation, and use more comments directly in the code, 
 - Discuss how these practices helped in identifying and fixing issues early.
 
 Impact of static code analysis tools:
-- We implemented Qodana, which is a static code analysis tool. This tool helped us identify issues, redundant code or unused code, and helped us fix them before they became a problem. The impact of Qodana was good, because we were able to actually see all the issues we had in our code. For us, this helps us understanding what exactly we need to focus on improving in the code, so we for examplem dont have a lot of redundant or unused code.
+- We implemented Qodana, which is a static code analysis tool. This tool helped us identify issues, redundant code, unused code amongst other issues. This helped us detect and fix these issues before they became a problem. The impact of Qodana was good, it provided us with good overheard and enabled us to see the issues that required our attention. For us, this helps us gather a greater understanding of what exactly we need to focus on, and to improve upon for future projects.
 
 Value of code and software reviews:
 - Specifically software reviews, helped us understand the importance of teamwork. Sometimes we are too focused on the small things we need to do, without looking at the rest of the code. This is where software reviews come in, and help us see the bigger picture.
@@ -116,7 +116,9 @@ In general, these practices work together to form a robust safety net that helps
 - Refined Task Service source code.
 - Unit tests with mocks.
 - PMD (or FxCop) report.
+  - We used the built-in functionality of Qodana in Rider
 - JaCoCo (or Coverlet) code coverage report.
+  - We used the built-in code coverage tool in JetBrains Rider.
 - Peer review feedback and any code changes.
 - Software review reflection.
 - Optional: SonarQube report.
@@ -134,8 +136,8 @@ In general, these practices work together to form a robust safety net that helps
 ---
 
 ## Tools and Technologies
-- **Languages**: Java/C# (or equivalent).
-- **Mocking**: Mockito, EasyMock (Java), or Moq (C#).
-- **Static Code Analysis**: PMD (Java) or FxCop (C#).
-- **Code Coverage**: JaCoCo (Java) or Coverlet (C#).
+- **Languages**: C#.
+- **Mocking**: Moq (C#).
+- **Static Code Analysis**: Qodana & Qodana Cloud .
+- **Code Coverage**: Built-in Code Coverage tool in JetBrains Rider.
 - **Optional**: SonarQube for deeper code quality analysis.
