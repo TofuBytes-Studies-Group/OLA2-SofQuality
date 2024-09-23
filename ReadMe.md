@@ -125,16 +125,6 @@ In general, these practices work together to form a robust safety net that helps
 
 ---
 
-## Project Summary
-- **Task Service API**: A CRUD API for managing tasks with emphasis on testability and code quality.
-- **Key Focus**:
-    - Mocking for isolating business logic.
-    - Static code analysis for early identification of issues.
-    - Code and software reviews for ensuring overall quality.
-    - Comprehensive testing with Equivalence Partitioning and Boundary Value Analysis.
-
----
-
 ## Tools and Technologies
 - **Languages**: C#.
 - **Mocking**: Moq (C#).

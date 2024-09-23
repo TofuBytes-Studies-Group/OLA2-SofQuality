@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using OLA2_SofQuality.Data;
 using OLA2_SofQuality.Repositories;
 using OLA2_SofQuality.Services;
@@ -37,4 +36,4 @@ app.MapControllers();
 
 app.Run();
 
-public partial class Program { }
+public abstract partial class Program { }

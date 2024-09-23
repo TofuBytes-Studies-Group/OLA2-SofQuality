@@ -2,31 +2,19 @@ namespace OLA2_SofQuality.Validator;
 
 public class Validator
 {
-    public bool ValidateDescription(string description)
+    public static bool ValidateDescription(string description)
     {
-        if (description.Length < 5 || description.Length > 255)
-        {
-            return false;
-        }
-        return true;
+        return description.Length is >= 5 and <= 255;
     }
 
     // virtual method to be able to mock it
-    public bool ValidateCategory(string category)
+    public static bool ValidateCategory(string category)
     {
-        if(category.Length is < 2 or > 50)
-        {
-            return false;
-        }
-        return true;
+        return category.Length is >= 2 and <= 50;
     }
 
-    public bool ValidateDeadline(DateTime deadline)
+    public static bool ValidateDeadline(DateTime deadline)
     {
-        if(deadline < DateTime.Now)
-        {
-            return false;
-        }
-        return true;
+        return deadline >= DateTime.Now;
     }
 }
