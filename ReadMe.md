@@ -1,4 +1,4 @@
-# Task Service with Testing, Code Analysis, and Reviews
+# OLA3/Assignment 3 - Task Service Enhancement: Testing, Code Analysis, and Collaborative Reviews
  - Group name: **TofuBytes** 
  - Members: **Isak, Jamie & Helena**
 
