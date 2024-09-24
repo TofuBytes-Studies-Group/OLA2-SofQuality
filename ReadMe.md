@@ -1,10 +1,10 @@
 # Task Service with Testing, Code Analysis, and Reviews
- - Group name: **TofuBytes** Members: **Isak, Jamie & Helena**
+ - Group name: **TofuBytes** 
+ - Members: **Isak, Jamie & Helena**
 
 ## Table of Contents
 
 1. [Objective](#objective)
-2. [Instructions](#instructions)
     - [Group Testing & Refinement](#1-group-testing--refinement)
     - [Unit Testing with Mocking](#2-unit-testing-with-mocking)
     - [Test Design](#3-test-design)
@@ -14,8 +14,8 @@
     - [Peer Code Reviews](#7-peer-code-reviews)
     - [Reflection: Software Review](#8-reflecting-on-our-findings-and-improvements-through-software-reviews)
     - [Reflection: Testing and Code Quality](#9-reflection-on-testing-and-code-quality)
-3. [Deliverables](#Deliverables-required-by-the-assignment)
-4. [Tools and Technologies](#tools-and-technologies-we-utilized)
+2. [Deliverables](#Deliverables-required-by-the-assignment)
+3. [Tools and Technologies](#tools-and-technologies-we-utilized)
 
 ## Objective
 Refine the **Task Service** with a focus on testing, static code analysis, and peer reviews. Apply code and software review principles to ensure quality, covering both automated and manual review processes.
@@ -23,7 +23,7 @@ Refine the **Task Service** with a focus on testing, static code analysis, and p
 ---
 
 ### Group Testing & Refinement
-- We made sure to refine our code, and made unit tests for our validator part. We also made sure to use Equivalence Partitioning and Boundary Value Analysis for our tests.
+- We made sure to refine our code, and developed unit tests for our validator component and Equivalence Partitioning and Boundary Value Analysis were applied to ensure comprehensive test coverage.
 Our unit tests are made based on this data:
 - Description length:
   - Valid, too short, too long ( minimum 5, maximum 255)
@@ -38,14 +38,10 @@ Our unit tests are made based on this data:
 In our `Validator.cs` file and `ValidatorTest.cs`, the validator is tested with the above data.
 
 ### 5. Code Coverage (JaCoCo or Coverlet)
-- Use **JaCoCo** (Java) or **Coverlet** (C#) for code coverage.
-- Ensure at least **75% code coverage**.
-- Submit the coverage report.
+- Code coverage was measured using the built-in code coverage tool in JetBrains Rider, and the results were analyzed to identify areas that need more testing. This was done to ensure that the code is thoroughly tested and that as many code paths as possible are covered. **Our final coverage came out to be 89%.**
 
 ### 6. Optional: Code Quality with SonarQube
-- If possible, integrate **SonarQube** for deeper code analysis.
-- Address and fix at least **three major issues** detected.
-- Submit the SonarQube report (optional).
+ - As this was optional, we decided to not prioritize this part of the assignment. We felt that the tools we used were sufficient for our needs, and that we could spend our time more efficiently on other parts of the assignment. That said, we did look into SonarQube, and it seems like a very powerful tool that we might use in the future.
 
 ### 7. Peer Code Reviews
 
@@ -63,7 +59,7 @@ We always check the code for readability and maintainability, and make sure that
 
 In relation to functional correctness, the code performs as expected and passes all the test cases. `Validation_test` was added as a way of ensuring our Validation Testing was done using equivalence partitioning and boundary value analysis. 
 For equivalence partitioning, the inputs were divided into valid and invalid categories, ensuring that the code handled typical cases within these partitions correctly. 
-Additionally, boundary value analysis revealed that the code responds appropriately at the edges of input ranges, such as minimum and maximum allowable values. However, further testing could be beneficial to expand the test coverage, especially for complex input patterns or extreme edge cases.
+Additionally, boundary value analysis revealed that the code responds appropriately at the edges of input ranges. However, further testing could be beneficial to expand the test coverage, especially for complex input patterns or extreme edge cases.
 We made sure that our software was correct, and that it was easy to maintain. We also made sure that the code was structured in a way that was easy to understand.
 The code was made to do what it was supposed to do, and if there were anything that were 'too much' or 'too little', we made sure to fix it.
 
