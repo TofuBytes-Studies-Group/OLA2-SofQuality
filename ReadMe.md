@@ -5,17 +5,15 @@
 ## Table of Contents
 
 1. [Objective](#objective)
-    - [Group Testing & Refinement](#1-group-testing--refinement)
-    - [Unit Testing with Mocking](#2-unit-testing-with-mocking)
-    - [Test Design](#3-test-design)
-    - [Refine Task Service, Unit testing and test design](#1-2-and-3-refine-task-service-unit-testing-and-test-design)
-    - [Static Code Analysis (PMD or FxCop)](#4-static-code-analysis-pmd-or-fxcop)
-    - [Code Coverage (JaCoCo or Coverlet)](#5-code-coverage-jacoco-or-coverlet)
-    - [Peer Code Reviews](#7-peer-code-reviews)
-    - [Reflection: Software Review](#8-reflecting-on-our-findings-and-improvements-through-software-reviews)
-    - [Reflection: Testing and Code Quality](#9-reflection-on-testing-and-code-quality)
-2. [Deliverables](#Deliverables-required-by-the-assignment)
-3. [Tools and Technologies](#tools-and-technologies-we-utilized)
+2. [Group Testing & Refinement](#group-testing--refinement)
+3. [Code Coverage](#5-code-coverage)
+4. [Optional: Code Quality with SonarQube](#6-optional-code-quality-with-sonarqube)
+5. [Peer Code Reviews](#7-peer-code-reviews)
+6. [Reflections](#9-reflection-software-reviews)
+   - [Reflection: Software Reviews](#9-reflection-software-reviews)
+   - [Reflection: Testing and Code Quality](#10-reflection-on-testing-and-code-quality)
+7. [Deliverables](#deliverables-required-by-the-assignment)
+8. [Tools and Technologies](#tools-and-technologies-we-utilized)
 
 ## Objective
 Refine the **Task Service** with a focus on testing, static code analysis, and peer reviews. Apply code and software review principles to ensure quality, covering both automated and manual review processes.
@@ -37,7 +35,7 @@ Our unit tests are made based on this data:
 
 In our `Validator.cs` file and `ValidatorTest.cs`, the validator is tested with the above data.
 
-### 5. Code Coverage (JaCoCo or Coverlet)
+### 5. Code Coverage
 - Code coverage was measured using the built-in code coverage tool in JetBrains Rider, and the results were analyzed to identify areas that need more testing. This was done to ensure that the code is thoroughly tested and that as many code paths as possible are covered. **Our final coverage came out to be 89%.**
 
 ### 6. Optional: Code Quality with SonarQube
@@ -45,7 +43,7 @@ In our `Validator.cs` file and `ValidatorTest.cs`, the validator is tested with 
 
 ### 7. Peer Code Reviews
 
-We consistently perform code reviews on each other's work. We use github pull requests to review the code, and below are some examples of some reviews we did:
+We consistently perform code reviews on each other's work. We use GitHub pull requests to review the code, and below are some examples of some reviews we did:
 
 ![Code comment 1](Images/codeComment1.png)
 
@@ -54,8 +52,11 @@ We consistently perform code reviews on each other's work. We use github pull re
 Especially in this last comment, it's clear that no single person is 'in charge' of the code. Instead, that we always work together to make sure what works, what doesn't.
 We always check the code for readability and maintainability, and make sure that the code is up to our standards.
 
+## Reflections 
 
-### 8. Reflecting on our findings and improvements through Software Reviews
+---
+
+### 9. Reflection: Software Reviews
 
 In relation to functional correctness, the code performs as expected and passes all the test cases. `Validation_test` was added as a way of ensuring our Validation Testing was done using equivalence partitioning and boundary value analysis. 
 For equivalence partitioning, the inputs were divided into valid and invalid categories, ensuring that the code handled typical cases within these partitions correctly. 
@@ -66,7 +67,7 @@ The code was made to do what it was supposed to do, and if there were anything t
 In relation to best practices, we always try to maintain a clean code structure and follow the coding standards. We make sure to name our methods correctly, so everyone knows what the methods actually do.
 We strive to improve documentation, comments is a way we want to reflect that directly in the code.
 
-### 9. Reflection on Testing and Code Quality
+### 10. Reflection on Testing and Code Quality
 
 For this part of the assignment we went with **Qodana** as our static code analysis tool mostly because it was built into Rider making it easily accessible and more or less was a one-click solution.
   The utilization of Qodana had a significant impact on our project. By scanning our codebase, Qodana identified various issues, no bugs was discovered this time around though. This early detection allowed us to address these problems promptly, preventing them from escalating into more serious issues. The insights provided by Qodana gave us a clear view of the areas that needed improvement, and by using their GUI in the browser it all was clearly presented to us in a nice and really user-friendly way. This helped us to focus on the most critical first(we had 3), and then work our way down to the less severe ones.
