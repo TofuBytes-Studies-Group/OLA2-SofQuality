@@ -1,5 +1,22 @@
 # Task Service with Testing, Code Analysis, and Reviews
  - Group name: **TofuBytes** Members: **Isak, Jamie & Helena**
+
+## Table of Contents
+
+1. [Objective](#objective)
+2. [Instructions](#instructions)
+    - [Task Service Refinement](#1-task-service-refinement)
+    - [Unit Testing with Mocking](#2-unit-testing-with-mocking)
+    - [Test Design](#3-test-design)
+    - [Refine Task Service, Unit testing and test design](#1-2-and-3-refine-task-service-unit-testing-and-test-design)
+    - [Static Code Analysis (PMD or FxCop)](#4-static-code-analysis-pmd-or-fxcop)
+    - [Code Coverage (JaCoCo or Coverlet)](#5-code-coverage-jacoco-or-coverlet)
+    - [Peer Code Review](#7-peer-code-review)
+    - [Software Review](#8-software-review)
+    - [Reflection on Testing and Code Quality](#9-reflection-on-testing-and-code-quality)
+3. [Deliverables](#deliverables)
+4. [Tools and Technologies](#tools-and-technologies)
+
 ## Objective
 Refine the **Task Service** with a focus on testing, static code analysis, and peer reviews. Apply code and software review principles to ensure quality, covering both automated and manual review processes.
 
@@ -90,19 +107,28 @@ In relation to best practices, we always try to maintain a clean code structure 
 We strive to improve documentation, comments is a way we want to reflect that directly in the code.
 
 ### 9. Reflection on Testing and Code Quality
-- Write a **300-400 word reflection** on:
-    - Impact of static code analysis tools (PMD, JaCoCo).
-    - Importance of mocking in unit testing.
-    - Value of code and software reviews.
-    - Influence of Equivalence Partitioning and Boundary Value Analysis on test design.
-- Discuss how these practices helped in identifying and fixing issues early.
+
+The impact we felt by utilizing static code analysis tools:
+- For this part of the assignment we went with Qodana as our static code analysis tool mostly because it was built into Rider making it easily accessible and more or less was a one-click solution.
+  The utilization of Qodana had a significant impact on our project. By scanning our codebase, Qodana identified various issues, no bugs was discovered this time around though. This early detection allowed us to address these problems promptly, preventing them from escalating into more serious issues. The insights provided by Qodana gave us a clear view of the areas that needed improvement, and by using their GUI in the browser it all was clearly presented to us in a nice and really user-friendly way. This helped us to focus on the most critical first(we had 3), and then work our way down to the less severe ones.
+
+Value of code and software reviews:
+- Specifically software reviews, helped us understand the importance of teamwork. Sometimes we are too focused on the small things we need to do, without looking at the rest of the code. This is where software reviews come in, and help us see the bigger picture.
+  - For example: We made the validator tests 3 different ways in the beginning. With the help of code reviews, we could see what the others had made, and made sure that it was similar.
+
+Influence of Equivalence Partitioning and Boundary Value Analysis on test design:
+- Equivalence partitioning helped us understanding a bit more, what needed to be tested. With the combination of the boundary value, we implemented more tests than we would usually, and it also helped us focus more on testing than writing the actual code.
+  - Equivalence partitioning helped us identify the major categories of input values, and  boundary values helped us ensure that the boundaries of these categories was tested thoroughly.
+
+In general, these practices work together to form a robust safety net that helps identify and address issues early in the development process. By using these techniques early on, we could find and resolve problems before they snowball into larger, more complex issues. This not only leads to higher-quality software but also saves time and effort, reducing the need for extensive debugging later in the development cycle.
+
 
 Impact of static code analysis tools:
 - We implemented Qodana, which is a static code analysis tool. This tool helped us identify issues, redundant code, unused code amongst other issues. This helped us detect and fix these issues before they became a problem. The impact of Qodana was good, it provided us with good overheard and enabled us to see the issues that required our attention. For us, this helps us gather a greater understanding of what exactly we need to focus on, and to improve upon for future projects.
 
 Value of code and software reviews:
 - Specifically software reviews, helped us understand the importance of teamwork. Sometimes we are too focused on the small things we need to do, without looking at the rest of the code. This is where software reviews come in, and help us see the bigger picture.
-    - For example: We made the validator tests 3 different ways in the beginning. With the help of code reviews, we could see what the others had made, and made sure that it was similar.
+    - For instance, initially, we approached the validator tests 3 different ways in the beginning. With the help of code reviews, we could see what the others had made, and made sure that it was similar.
 
 Influence of Equivalence Partitioning and Boundary Value Analysis on test design:
 - Equivalence partitioning helped us understanding a bit more, what needed to be tested. With the combination of the boundary value, we implemented more tests than we would usually, and it also helped us focus more on testing than writing the actual code.
